@@ -11,7 +11,7 @@
 
 <body>
 	<H1> Ajout d'un adhérent </H1> 
-
+//test
 <DIV align="center">
 <FORM  name='identification' method="post" action="Controleur?action=insererAdherent" onsubmit="return teste()">
      <P align="left"><FONT face="Arial" color="#004080"></FONT>     

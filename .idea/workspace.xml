@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3439dd4-b811-4f7b-a718-e9e8a7f582f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/projetOeuvres/projetOeuvres.war" afterPath="$PROJECT_DIR$/out/artifacts/projetOeuvres/projetOeuvres.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/ajouterAdherent.jsp" afterPath="$PROJECT_DIR$/WebContent/ajouterAdherent.jsp" />
     </list>
     <ignored path="ProjetOeuvres.iws" />
@@ -55,8 +53,8 @@
       <file leaf-file-name="ajouterAdherent.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/ajouterAdherent.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7519789">
-              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.5145119">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -461,12 +459,12 @@
       <workItem from="1455545445676" duration="19000" />
       <workItem from="1455545475107" duration="293000" />
       <workItem from="1455545957358" duration="127000" />
-      <workItem from="1455546849576" duration="404000" />
+      <workItem from="1455546849576" duration="628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1356000" />
+    <option name="totallyTimeSpent" value="1580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="6" />
@@ -681,8 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/ajouterAdherent.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7519789">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.5145119">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
