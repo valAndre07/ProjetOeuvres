@@ -1,0 +1,75 @@
+body
+{
+    background-image:url(/img/background.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1
+{
+    text-align:center;
+    color:white;
+    font-size: 32px;
+}
+p
+{
+    text-align:center;
+    color:white;
+    font-size: 20px;
+}
+a
+{
+    text-align:center;
+}
+a:hover
+{
+    text-decoration: none;
+}
+h2
+{
+    text-align:center;
+    color:white;
+}
+footer
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}
+img
+{
+    width: 25%;
+    text-align: center;
+    margin: auto;
+}
+img:hover {
+    -webkit-transition: all .2s ease; /* Safari and Chrome */
+    -moz-transition: all .2s ease; /* Firefox */
+    -o-transition: all .2s ease; /* IE 9 */
+    -ms-transition: all .2s ease; /* Opera */
+    transition: all .2s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform:translateZ(0) scale(1.25); /* Safari and Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* IE 9 */
+    -o-transform:translatZ(0) scale(1.25); /* Opera */
+    transform:translatZ(0) scale(1.25);
+}
+.text_footer
+{
+    color:black;
+    font-size: 14px;
+    text-align: center;
+}
+.button_dashboard
+{
+    padding-top:8%;
+    padding-bottom:8%;
+    border-style: solid;
+    border-color: transparent;
+}
+.button_dashboard:hover
+{
+    border-color: white;
+}
