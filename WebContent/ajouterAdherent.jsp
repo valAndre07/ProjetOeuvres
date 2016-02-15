@@ -9,7 +9,6 @@
 <SCRIPT language="Javascript" type="text/javascript">
 <script type="text/javascript" src="js/foncControle.js"></script>
 
-//test git
 <body>
 	<H1> Ajout d'un adhérent </H1> 
 
