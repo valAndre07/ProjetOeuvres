@@ -7,7 +7,7 @@
 <title>Ajouter un  adhérent</title>
 </head>
 <SCRIPT language="Javascript" type="text/javascript">
-<script type="text/javascript" src="js/foncControle.js"></script>
+<script type="text/javascript" src="js/fonctControle.js"></script>
 
 <body>
 	<H1> Ajout d'un adhérent </H1> 
