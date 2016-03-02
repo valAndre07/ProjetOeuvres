@@ -51,6 +51,7 @@
                 <th>État</th>
                 <th>Prix</th>
                 <th>Propriétaire</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -61,6 +62,7 @@
                     <td>${item.etatOeuvrevente}</td>
                     <td>${item.prixOeuvrevente}</td>
                     <td>${item.proprietaire.nomProprietaire} ${item.proprietaire.prenomProprietaire}</td>
+                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </c:forEach>
             </tbody>
