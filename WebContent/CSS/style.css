@@ -89,6 +89,32 @@ img
     -o-transform:translatZ(0) scale(1.15); /* Opera */
     transform:translatZ(0) scale(1.15);
 }
+.alert
+{
+    display:inline-block;
+    position: fixed;
+    right: 0;
+    top:0;
+    z-index: 2;
+}
+.button-return
+{
+    background-color: #fc7c14;
+    display:inline-block;
+    padding-top:1%;
+    padding-bottom:1%;
+    padding-right:2%;
+    padding-left:2%;
+}
+.link-return
+{
+    color: white;
+}
+.link-return :hover
+{
+    color: white;
+}
+/* Permet au formaulaire google maps d être au dessus */
 .pac-container {
     z-index: 1051 !important;
 }

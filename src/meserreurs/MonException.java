@@ -21,7 +21,7 @@ public class MonException  extends Exception  {
         return message;
     }
 
-    public void setMessage(java.lang.String libelle) {
+    public void setMessage(String libelle) {
         this.message = libelle;
     }
 

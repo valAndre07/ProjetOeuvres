@@ -5,7 +5,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Affichage de tous les adhérents</title>
+    <title>Affichage de toutes les oeuvres</title>
 
     <link rel="stylesheet" href="bootstrap-3.3.6/css/bootstrap.css">
     <link rel="stylesheet" href="CSS/style.css">
@@ -29,9 +29,10 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <h1>Listing des Adhérents</h1>
+        <h1>Listing des Oeuvres</h1>
     </div>
 </div>
+
 <div class="button-return">
     <a href="index.jsp" class="link-return"><strong>Retour Accueil</strong></a>
 </div>
@@ -42,22 +43,24 @@
     <div class="col-xs-1 col-sm-1 col-md-1">
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10">
-        <table class="display hover stripe row-border" id="table_list">
+        <table class=" display hover stripe row-border" id="table_list">
             <thead>
             <tr>
                 <th>Numéro</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Ville</th>
+                <th>Titre</th>
+                <th>État</th>
+                <th>Prix</th>
+                <th>Propriétaire</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${mesAdherents}" var="item">
+            <c:forEach items="${oeuvres}" var="item">
                 <tr>
-                    <td>${item.idAdherent}</td>
-                    <td>${item.nomAdherent}</td>
-                    <td>${item.prenomAdherent}</td>
-                    <td>${item.villeAdherent}</td>
+                    <td>${item.idOeuvrevente}</td>
+                    <td>${item.titreOeuvrevente}</td>
+                    <td>${item.etatOeuvrevente}</td>
+                    <td>${item.prixOeuvrevente}</td>
+                    <td>${item.proprietaire.nomProprietaire} ${item.proprietaire.prenomProprietaire}</td>
                 </tr>
             </c:forEach>
             </tbody>

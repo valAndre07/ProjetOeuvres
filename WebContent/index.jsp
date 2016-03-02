@@ -1,25 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="fr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Expo : Médiathèque De POLYTECH</title>
+    <meta charset="utf-8">
+    <title>Expo : Médiathèque De POLYTECH</title>
 
-<link rel="stylesheet" href="bootstrap-3.3.6/css/bootstrap.css">
-<link rel="stylesheet" href="CSS/index.css">
-<link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="bootstrap-3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap-3.3.6/js/bootstrap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<script src="js/valid_form.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.6/js/bootstrap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="js/valid_form.js"></script>
 </head>
-
 <body>
 
 </br></br>
+
+<c:choose>
+    <c:when test="${notification == 'ajout adherent'}">
+        <div class="alert alert-success ">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Ajout de l'adhérent réussi !
+        </div>
+    </c:when>
+    <c:when test="${notification == 'erreur'}">
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Une erreur s'est produite !
+        </div>
+    </c:when>
+</c:choose>
+
 <div class="container">
 
 	<div class="row">
@@ -50,7 +65,7 @@
 				</a>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-height">
-                <a href="">
+                <a href="Controleur?action=editAdherent">
                     <div class="button_dashboard" style="background-color:#9b59b6;">
                         <p>Modifier Adhérent</p>
                         <img src="img/edit_adherent.png" class="img-responsive">
@@ -67,7 +82,7 @@
 	<div class="row">
 		<div class="row-height">
 			<div class="col-xs-12 col-sm-4 col-md-4 col-height">
-                <a href="Controleur?action=ajouterAdherent">
+                <a href="Controleur?action=insererOeuvre">
                     <div class="button_dashboard" style="background-color:rgb(25,181,254);">
                         <p>Ajout Oeuvre</p>
                         <img src="img/add_oeuvre.png" class="img-responsive">
@@ -75,15 +90,15 @@
 			    </a>
             </div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-height">
-                <a href="Controleur?action=listerAdherent">
+                <a href="Controleur?action=listerOeuvre">
                     <div class="button_dashboard" style="background-color:#ea6153">
-                        <p>Lister les oeuvres</p>
+                        <p>Lister et modifier les oeuvres</p>
                         <img src="img/list_oeuvre.png" class="img-responsive">
                     </div>
 			    </a>
             </div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-height">
-                <a href="Controleur?action=listerAdherent">
+                <a href="Controleur?action=reservation">
                     <div class="button_dashboard" style="background-color:#F1C40F;">
                         <p>Réservations</p>
                         <img src="img/resa_oeuvre.png" class="img-responsive">

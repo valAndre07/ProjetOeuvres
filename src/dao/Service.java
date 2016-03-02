@@ -8,9 +8,9 @@ import persistance.*;
 
 public class Service {
 
-	// Mise à jour des caractéristiques d'un adhérent
-	// Le booleen indique s'il s'agit d'un nouvel adhérent, auquel cas on fait
-	// une création
+	// Mise ï¿½ jour des caractï¿½ristiques d'un adhï¿½rent
+	// Le booleen indique s'il s'agit d'un nouvel adhï¿½rent, auquel cas on fait
+	// une crï¿½ation
 
 	public void insertAdherent(Adherent unAdherent) throws MonException {
 		String mysql;
@@ -28,8 +28,8 @@ public class Service {
 	}
 
 	// gestion des adherents
-	// Consultation d'un adhérent par son numéro
-	// Fabrique et renvoie un objet adhérent contenant le résultat de la requête
+	// Consultation d'un adhï¿½rent par son numï¿½ro
+	// Fabrique et renvoie un objet adhï¿½rent contenant le rï¿½sultat de la requï¿½te
 	// BDD
 	public Adherent consulterAdherent(int numero) throws MonException {
 		String mysql = "select * from adherent where numero_adherent=" + numero;
@@ -41,9 +41,9 @@ public class Service {
 		}
 	}
 
-	// Consultation des adhérents
-	// Fabrique et renvoie une liste d'objets adhérent contenant le résultat de
-	// la requête BDD
+	// Consultation des adhï¿½rents
+	// Fabrique et renvoie une liste d'objets adhï¿½rent contenant le rï¿½sultat de
+	// la requï¿½te BDD
 	public List<Adherent> consulterListeAdherents() throws MonException {
 		String mysql = "select * from adherent";
 		return consulterListeAdherents(mysql);
@@ -57,14 +57,14 @@ public class Service {
 			DialogueBd unDialogueBd = DialogueBd.getInstance();
 			rs = DialogueBd.lecture(mysql);
 			while (index < rs.size()) {
-				// On crée un stage
+				// On crï¿½e un stage
 				Adherent unA = new Adherent();
 				// il faut redecouper la liste pour retrouver les lignes
 				unA.setIdAdherent(Integer.parseInt(rs.get(index + 0).toString()));
 				unA.setNomAdherent(rs.get(index + 1).toString());
 				unA.setPrenomAdherent(rs.get(index + 2).toString());
 				unA.setVilleAdherent(rs.get(index + 3).toString());
-				// On incrémente tous les 3 champs
+				// On incrï¿½mente tous les 3 champs
 				index = index + 4;
 				mesAdherents.add(unA);
 			}
@@ -75,4 +75,103 @@ public class Service {
 		}
 	}
 
+	public void insertOeuvre(Oeuvrevente uneOeuvre) throws MonException  {
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "insert into oeuvrevente  (titre_oeuvrevente,prix_oeuvrevente,etat_oeuvrevente,id_proprietaire)  "
+					+ "values ('" + uneOeuvre.getTitreOeuvrevente();
+			mysql += "'" + ",'" + uneOeuvre.getPrixOeuvrevente() + "','" + uneOeuvre.getEtatOeuvrevente();
+			mysql += "'" + ",'" + uneOeuvre.getProprietaire() + "')";
+
+			unDialogueBd.insertionBD(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
+	}
+
+	// Consultation des oeuvres
+	// Fabrique et renvoie une liste d'objets oeuvres contenant le rï¿½sultat de
+	// la requï¿½te BDD
+	public List<Oeuvrevente> consulterListeOeuvres() throws MonException {
+		String mysql = "select * from oeuvrevente";
+		return consulterListeOeuvres(mysql);
+	}
+
+	private List<Oeuvrevente> consulterListeOeuvres(String mysql) throws MonException {
+		List<Object> rs;
+		List<Oeuvrevente> mesOeuvres = new ArrayList<Oeuvrevente>();
+		int index = 0;
+		try {
+			DialogueBd unDialogueBd = DialogueBd.getInstance();
+			rs = DialogueBd.lecture(mysql);
+			while (index < rs.size()) {
+				// On crï¿½e un stage
+				Oeuvrevente oeuvre = new Oeuvrevente();
+				// il faut redecouper la liste pour retrouver les lignes
+                oeuvre.setIdOeuvrevente(Integer.parseInt(rs.get(index + 0).toString()));
+				oeuvre.setTitreOeuvrevente(rs.get(index + 1).toString());
+                oeuvre.setEtatOeuvrevente(rs.get(index + 2).toString());
+                oeuvre.setPrixOeuvrevente(Float.parseFloat(rs.get(index + 3).toString()));
+                Proprietaire proprietaire = proprietaireById(Integer.parseInt(rs.get(index + 4).toString()));
+                oeuvre.setProprietaire(proprietaire);
+                index = index + 5;
+                mesOeuvres.add(oeuvre);
+			}
+
+			return mesOeuvres;
+		} catch (Exception exc) {
+			throw new MonException(exc.getMessage(), "systeme");
+		}
+	}
+
+    // Consultation des proprietaires
+    // Fabrique et renvoie une liste d'objets oeuvres contenant le rï¿½sultat de
+    // la requï¿½te BDD
+    public List<Proprietaire> consulterListeProprietaires() throws MonException {
+        String mysql = "select * from proprietaire";
+        return consulterListeProprietaires(mysql);
+    }
+
+    private List<Proprietaire> consulterListeProprietaires(String mysql) throws MonException {
+        List<Object> rs;
+        List<Proprietaire> props = new ArrayList<Proprietaire>();
+        int index = 0;
+        try {
+            DialogueBd unDialogueBd = DialogueBd.getInstance();
+            rs = DialogueBd.lecture(mysql);
+            while (index < rs.size()) {
+                // On crï¿½e un stage
+                Proprietaire prop = new Proprietaire();
+                // il faut redecouper la liste pour retrouver les lignes
+                prop.setIdProprietaire(Integer.parseInt(rs.get(index + 0).toString()));
+                prop.setNomProprietaire(rs.get(index + 1).toString());
+                prop.setPrenomProprietaire(rs.get(index + 2).toString());
+                props.add(prop);
+            }
+
+            return props;
+        } catch (Exception exc) {
+            throw new MonException(exc.getMessage(), "systeme");
+        }
+    }
+    // gestion des proprietaire
+    // Consultation d'un proprietaire par son numï¿½ro
+    // Fabrique et renvoie un objet proprietaire contenant le rï¿½sultat de la requï¿½te
+    // BDD
+    public Proprietaire proprietaireById(int numero) throws MonException {
+        String mysql = "select * from proprietaire where id_proprietaire=" + numero;
+        List<Object> rs;
+        DialogueBd unDialogueBd = DialogueBd.getInstance();
+        rs = DialogueBd.lecture(mysql);
+        int index = 0;
+        Proprietaire prop = new Proprietaire();
+        // il faut redecouper la liste pour retrouver les lignes
+        prop.setIdProprietaire(Integer.parseInt(rs.get(index + 0).toString()));
+        prop.setNomProprietaire(rs.get(index + 1).toString());
+        prop.setPrenomProprietaire(rs.get(index + 2).toString());
+        index = index + 3;
+        return prop;
+    }
 }

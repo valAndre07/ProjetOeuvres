@@ -5032,6 +5032,7 @@ a.thumbnail.active {
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
+  width:30%;
 }
 .alert h4 {
   margin-top: 0;
@@ -5062,6 +5063,7 @@ a.thumbnail.active {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
+    width:30%;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
@@ -5084,6 +5086,7 @@ a.thumbnail.active {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
+    width:30%;
 }
 .alert-warning hr {
   border-top-color: #f7e1b5;
