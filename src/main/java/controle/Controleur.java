@@ -27,6 +27,7 @@ public class Controleur extends HttpServlet {
 	private static final String INSERER_ADHERENT = "insererAdherent";
 	private static final String INSERER_OEUVRE = "insererOeuvre";
     private static final String EDIT_ADHERENT = "editAdherent";
+	private static final String UPDATE_ADHERENT = "updateAdherent";
 	private static final String ERROR_KEY = "messageErreur";
 	private static final String ERROR_PAGE = "/erreur.jsp";
 
@@ -122,10 +123,42 @@ public class Controleur extends HttpServlet {
 			}
 			destinationPage = "/accueil.jsp";
 		}
+		else if (DELETE_ADHERENT.equals(actionName)) {
+			try {
+                int idAdherent = Integer.parseInt(request.getParameter("idAdherent"));
+				Service unService = new Service();
+				unService.deleteAdherent(idAdherent);
+				request.setAttribute("notification", "adherent supprimé");
+				request.setAttribute("mesAdherents", unService.consulterListeAdherents());
+			} catch (MonException e) {
+				// TODO Auto-generated catch block
+				request.setAttribute("notification", "erreur");
+				e.printStackTrace();
+			}
+			destinationPage = "/edit_adherent.jsp";
+		}
         else if (EDIT_ADHERENT.equals(actionName)) {
             try {
                 Service unService = new Service();
                 request.setAttribute("mesAdherents", unService.consulterListeAdherents());
+
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                request.setAttribute("notification", "erreur");
+                e.printStackTrace();
+            }
+            destinationPage = "/edit_adherent.jsp";
+        }
+        else if (UPDATE_ADHERENT.equals(actionName)) {
+            try {
+                int idAdherent = Integer.parseInt(request.getParameter("idAdherent"));
+                String nom = request.getParameter("txtnom");
+                String prenom = request.getParameter("txtprenom");
+                String ville = request.getParameter("txtville");
+                Service unService = new Service();
+                unService.updateAdherent(idAdherent, nom, prenom, ville);
+                request.setAttribute("mesAdherents", unService.consulterListeAdherents());
+                request.setAttribute("notification", "update effectué");
 
             } catch (MonException e) {
                 // TODO Auto-generated catch block

@@ -32,8 +32,19 @@ public class Service {
 
 		DialogueBd unDialogueBd = DialogueBd.getInstance();
 		try {
-			mysql = "delete";
+			mysql = "delete from adherent where id_adherent="+idAdherent;
+			unDialogueBd.insertionBD(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
+	}
 
+	public void updateAdherent(int idAdherent, String nom, String prenom, String ville) throws MonException {
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "UPDATE adherent SET nom_adherent="+"'"+nom+"'"+", prenom_adherent="+"'"+prenom+"'"+", ville_adherent="+"'"+ville+"'"+" WHERE id_adherent="+idAdherent;
 			unDialogueBd.insertionBD(mysql);
 		} catch (MonException e) {
 			throw e;
