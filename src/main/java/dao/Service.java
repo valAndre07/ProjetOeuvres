@@ -27,6 +27,19 @@ public class Service {
 		}
 	}
 
+	public void deleteAdherent(int idAdherent) throws MonException {
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "delete";
+
+			unDialogueBd.insertionBD(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
+	}
+
 	// gestion des adherents
 	// Consultation d'un adh�rent par son num�ro
 	// Fabrique et renvoie un objet adh�rent contenant le r�sultat de la requ�te
@@ -148,6 +161,7 @@ public class Service {
                 prop.setIdProprietaire(Integer.parseInt(rs.get(index + 0).toString()));
                 prop.setNomProprietaire(rs.get(index + 1).toString());
                 prop.setPrenomProprietaire(rs.get(index + 2).toString());
+				index = index + 3;
                 props.add(prop);
             }
 

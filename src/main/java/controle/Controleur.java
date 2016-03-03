@@ -20,7 +20,9 @@ import meserreurs.*;
 public class Controleur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String ACTION_TYPE = "action";
+	private static final String INDEX = "index";
 	private static final String LISTER_ADHERENT = "listerAdherent";
+	private static final String DELETE_ADHERENT = "deleteAdherent";
 	private static final String LISTER_OEUVRE = "listerOeuvre";
 	private static final String INSERER_ADHERENT = "insererAdherent";
 	private static final String INSERER_OEUVRE = "insererOeuvre";
@@ -61,7 +63,20 @@ public class Controleur extends HttpServlet {
 		String actionName = request.getParameter(ACTION_TYPE);
 		String destinationPage = ERROR_PAGE;
 		// execute l'action
-		if (LISTER_ADHERENT.equals(actionName)) {
+        if (INDEX.equals(actionName))
+        {
+            try {
+                Service unService = new Service();
+                request.setAttribute("props", unService.consulterListeProprietaires());
+
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                request.setAttribute("notification", "erreur");
+                e.printStackTrace();
+            }
+            destinationPage = "/accueil.jsp";
+        }
+		else if (LISTER_ADHERENT.equals(actionName)) {
 			try {
 
 				Service unService = new Service();
@@ -76,7 +91,7 @@ public class Controleur extends HttpServlet {
 			destinationPage = "/listerAdherent.jsp";
 		}
 
-        if (LISTER_OEUVRE.equals(actionName)) {
+        else if (LISTER_OEUVRE.equals(actionName)) {
             try {
 
                 Service unService = new Service();
@@ -105,7 +120,7 @@ public class Controleur extends HttpServlet {
                 request.setAttribute("notification", "erreur");
 				e.printStackTrace();
 			}
-			destinationPage = "/index.jsp";
+			destinationPage = "/accueil.jsp";
 		}
         else if (EDIT_ADHERENT.equals(actionName)) {
             try {

@@ -12,4 +12,5 @@
             url="jdbc:mysql://localhost:8889/baseoeuvre"
             maxActive="8"
             maxIdle="4"/>
+            docBase="PATH_TO_WEBAPP" path="/CONTEXT" disableURLRewriting="true"
 </Context>

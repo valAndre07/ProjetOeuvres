@@ -34,7 +34,7 @@
 </div>
 
 <div class="button-return">
-    <a href="index.jsp" class="link-return"><strong>Retour Accueil</strong></a>
+    <a href="Controleur?action=index" class="link-return"><strong>Retour Accueil</strong></a>
 </div>
 
 </br></br>
